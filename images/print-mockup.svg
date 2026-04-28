@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="paperShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-opacity="0.18"/>
+    </filter>
+    <linearGradient id="bgRoom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgRoom)"/>
+
+  <!-- Folha A4 impressa -->
+  <g filter="url(#paperShadow)">
+    <rect x="200" y="40" width="400" height="540" fill="#ffffff" rx="2"/>
+
+    <!-- HEADER COM LOGO -->
+    <rect x="220" y="60" width="360" height="60" fill="#0D47A1" rx="4"/>
+    <text x="400" y="98" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="white" text-anchor="middle" letter-spacing="2">CLÍNICA SÃO LUCAS</text>
+
+    <!-- Imagem do exame (raio-x simulado) -->
+    <g transform="translate(220, 140)">
+      <rect width="360" height="380" fill="#0a0a0a"/>
+      <!-- "raio-x" estilizado: silhueta de braço/mão -->
+      <g opacity="0.85">
+        <ellipse cx="180" cy="90" rx="40" ry="30" fill="#94a3b8"/>
+        <rect x="170" y="100" width="20" height="180" fill="#cbd5e1" rx="6"/>
+        <ellipse cx="180" cy="290" rx="50" ry="25" fill="#94a3b8"/>
+        <rect x="155" y="285" width="50" height="60" fill="#94a3b8" rx="20"/>
+        <!-- ossos detalhe -->
+        <line x1="172" y1="120" x2="172" y2="270" stroke="#e2e8f0" stroke-width="2"/>
+        <line x1="188" y1="120" x2="188" y2="270" stroke="#e2e8f0" stroke-width="2"/>
+        <!-- fratura -->
+        <path d="M 175 195 L 195 200 L 178 210" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.6"/>
+      </g>
+      <!-- Anotações DICOM -->
+      <text x="10" y="20" font-family="Consolas, monospace" font-size="10" fill="#cbd5e1">PT: SILVA, J.</text>
+      <text x="10" y="35" font-family="Consolas, monospace" font-size="10" fill="#cbd5e1">ID: 2026-0427</text>
+      <text x="10" y="50" font-family="Consolas, monospace" font-size="10" fill="#cbd5e1">SE: 1 / IM: 1</text>
+      <text x="350" y="20" font-family="Consolas, monospace" font-size="10" fill="#cbd5e1" text-anchor="end">RAIO-X</text>
+      <text x="350" y="35" font-family="Consolas, monospace" font-size="10" fill="#cbd5e1" text-anchor="end">27/04/2026</text>
+      <text x="350" y="370" font-family="Consolas, monospace" font-size="10" fill="#cbd5e1" text-anchor="end">L</text>
+    </g>
+
+    <!-- FOOTER -->
+    <line x1="220" y1="540" x2="580" y2="540" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="400" y="560" font-family="Inter, sans-serif" font-size="11" fill="#475569" text-anchor="middle">Av. Paulista 1000 · São Paulo/SP · (11) 9999-0000 · saolucas.com.br</text>
+  </g>
+
+  <!-- Setas/anotações -->
+  <g font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">
+    <text x="40" y="80">Cabeçalho</text>
+    <text x="40" y="100">com a logo</text>
+    <text x="40" y="120">da clínica</text>
+    <line x1="120" y1="100" x2="200" y2="90" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="200" cy="90" r="3" fill="#94a3b8"/>
+
+    <text x="40" y="320">Imagem DICOM</text>
+    <text x="40" y="340">processada</text>
+    <text x="40" y="360">e centralizada</text>
+    <line x1="120" y1="340" x2="218" y2="320" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="218" cy="320" r="3" fill="#94a3b8"/>
+
+    <text x="640" y="555" text-anchor="start">Rodapé</text>
+    <text x="640" y="575" text-anchor="start">com endereço</text>
+    <text x="640" y="595" text-anchor="start">e contato</text>
+    <line x1="635" y1="565" x2="582" y2="555" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="582" cy="555" r="3" fill="#94a3b8"/>
+  </g>
+</svg>

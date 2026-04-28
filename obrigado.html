@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obrigado pela compra — Ultra DICOM</title>
+  <meta name="description" content="Pagamento confirmado. Veja os próximos passos para receber sua chave de ativação." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          ink: { 900: '#0a0a0a', 800: '#171717', 700: '#262626', 600: '#404040', 500: '#525252', 400: '#737373' },
+          paper: { DEFAULT: '#fafafa', 100: '#f5f5f5', 200: '#e5e5e5' },
+          brand: { 50: '#e8f0fe', 500: '#1976D2', 600: '#0D47A1', 700: '#093079' }
+        },
+        fontFamily: {
+          sans:    ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif']
+        }
+      } }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    .num-marker {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #0D47A1;
+      font-size: 0.875rem;
+    }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-ink-800 antialiased min-h-screen flex flex-col">
+
+  <!-- HEADER simples -->
+  <header class="border-b border-paper-200">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="images/logo.svg" alt="Ultra DICOM" class="w-9 h-9" />
+        <div>
+          <div class="text-lg font-bold font-display text-ink-900 leading-none">Ultra DICOM</div>
+          <div class="text-[10px] uppercase tracking-widest text-ink-400">Print Server</div>
+        </div>
+      </a>
+      <a href="/" class="text-sm text-ink-500 hover:text-ink-900 transition">← Voltar ao site</a>
+    </div>
+  </header>
+
+  <!-- HERO de confirmação -->
+  <section class="bg-ink-900 text-white py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="w-20 h-20 mx-auto bg-emerald-500 rounded-full flex items-center justify-center mb-8">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <div class="num-marker text-brand-500 mb-4">— PEDIDO CONFIRMADO</div>
+      <h1 class="section-title text-4xl md:text-6xl leading-tight mb-6">
+        Obrigado pela<br />sua compra!
+      </h1>
+      <p class="text-lg md:text-xl text-paper-200 max-w-2xl mx-auto">
+        Recebemos a confirmação do seu pagamento. Agora siga os 3 passos abaixo
+        para ativar sua licença em poucos minutos.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <section class="py-20 md:py-28 flex-1">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="num-marker mb-4 text-center">— PRÓXIMOS PASSOS</div>
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-16">Como receber sua chave de ativação.</h2>
+
+      <ol class="space-y-12">
+        <!-- Passo 1 -->
+        <li class="grid md:grid-cols-[80px_1fr] gap-6 md:gap-10 items-start">
+          <div class="text-5xl font-bold font-display text-brand-600">01.</div>
+          <div>
+            <h3 class="section-title text-2xl mb-3">Baixe o Ultra DICOM</h3>
+            <p class="text-ink-600 mb-5 leading-relaxed">
+              Um arquivo único de aproximadamente 64 MB. Roda direto, sem instalador,
+              em qualquer Windows 10 ou 11.
+            </p>
+            <a href="https://github.com/PauloMoreira85/ultradicom-site/releases/latest/download/Ultra_Dicom.exe"
+               class="inline-flex items-center gap-3 bg-ink-900 hover:bg-ink-700 text-white font-semibold px-6 py-3 rounded-full transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Baixar Ultra_Dicom.exe
+            </a>
+          </div>
+        </li>
+
+        <!-- Passo 2 -->
+        <li class="grid md:grid-cols-[80px_1fr] gap-6 md:gap-10 items-start">
+          <div class="text-5xl font-bold font-display text-brand-600">02.</div>
+          <div>
+            <h3 class="section-title text-2xl mb-3">Pegue seu Hardware ID</h3>
+            <p class="text-ink-600 mb-5 leading-relaxed">
+              Abra o Ultra_Dicom.exe e na tela inicial você verá um <strong class="text-ink-900">Hardware ID</strong>
+              (16 caracteres). Copie esse código clicando no botão "Copiar HW ID".
+            </p>
+            <div class="bg-paper border border-paper-200 rounded-xl p-5 inline-block font-mono text-sm">
+              <div class="text-xs uppercase tracking-widest text-ink-400 mb-1">Exemplo</div>
+              <div class="text-ink-900 font-bold">A1B2-C3D4-E5F6-G7H8</div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Passo 3 -->
+        <li class="grid md:grid-cols-[80px_1fr] gap-6 md:gap-10 items-start">
+          <div class="text-5xl font-bold font-display text-brand-600">03.</div>
+          <div>
+            <h3 class="section-title text-2xl mb-3">Envie para nós</h3>
+            <p class="text-ink-600 mb-5 leading-relaxed">
+              Envie o seu Hardware ID por <strong class="text-ink-900">WhatsApp ou e-mail</strong>,
+              junto com o seu nome completo ou nome da clínica/hospital. Em até
+              <strong class="text-ink-900">1 hora útil</strong> você recebe sua chave de ativação por e-mail.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <a href="https://wa.me/SEU_NUMERO_AQUI?text=Ol%C3%A1%2C%20paguei%20a%20licen%C3%A7a%20Ultra%20DICOM.%20Meu%20Hardware%20ID%20%C3%A9%3A%20"
+                 target="_blank" rel="noopener"
+                 class="flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-3 rounded-xl transition">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.81 11.81 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.595 5.392l-.999 3.648 3.893-1.539zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Enviar pelo WhatsApp</span>
+              </a>
+              <a href="mailto:suporte@ultradicom.com.br?subject=Ativa%C3%A7%C3%A3o%20Ultra%20DICOM&body=Ol%C3%A1%2C%20paguei%20a%20licen%C3%A7a%20Ultra%20DICOM.%0AMeu%20Hardware%20ID%20%C3%A9%3A%20%0AMeu%20nome%2Fcl%C3%ADnica%3A%20"
+                 class="flex items-center gap-3 bg-ink-900 hover:bg-ink-700 text-white font-semibold px-5 py-3 rounded-xl transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>Enviar por e-mail</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Passo 4 -->
+        <li class="grid md:grid-cols-[80px_1fr] gap-6 md:gap-10 items-start">
+          <div class="text-5xl font-bold font-display text-brand-600">04.</div>
+          <div>
+            <h3 class="section-title text-2xl mb-3">Cole a chave e ative</h3>
+            <p class="text-ink-600 leading-relaxed">
+              Quando receber a chave por e-mail, abra o Ultra DICOM, clique em
+              <strong class="text-ink-900">🔑 Ativar Licença</strong> (botão laranja no topo),
+              cole a chave e clique em <strong class="text-ink-900">ATIVAR</strong>.
+              Pronto — 12 meses de uso ininterrupto.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- AVISO IMPORTANTE -->
+  <section class="bg-paper border-y border-paper-200 py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="bg-white border-l-4 border-brand-600 rounded-r-xl p-6">
+        <h3 class="font-display font-bold text-lg mb-2">⚠ Importante</h3>
+        <p class="text-ink-600 leading-relaxed">
+          Sua chave é amarrada ao <strong class="text-ink-900">hardware da máquina onde foi gerada</strong>.
+          Por isso é essencial enviar o Hardware ID gerado <strong class="text-ink-900">no PC onde
+          o Ultra DICOM vai rodar</strong>. Se você precisar usar em outra máquina depois, fale
+          conosco para gerar nova chave.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER simples -->
+  <footer class="bg-ink-900 text-paper-200 py-10">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <img src="images/logo.svg" alt="Ultra DICOM" class="w-8 h-8" />
+        <span class="font-bold font-display text-white">Ultra DICOM</span>
+      </div>
+      <p class="text-sm mb-2">Suporte: <a href="mailto:suporte@ultradicom.com.br" class="text-white hover:underline">suporte@ultradicom.com.br</a></p>
+      <p class="text-xs text-paper-200">© 2026 Ultra DICOM. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

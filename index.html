@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultra DICOM — Servidor de Impressão DICOM em papel fotográfico</title>
+  <meta name="description" content="Substitua filmes radiológicos por papel fotográfico. Servidor DICOM Print profissional para clínicas e hospitais. Teste grátis por 15 dias." />
+
+  <meta property="og:title" content="Ultra DICOM — Impressão DICOM em papel fotográfico" />
+  <meta property="og:description" content="Servidor DICOM Print que imprime exames de qualquer modalidade (RM, TC, RX, US) em impressora comum." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ultradicom.com.br" />
+  <meta property="og:image" content="https://ultradicom.com.br/images/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:    { 900: '#0a0a0a', 800: '#171717', 700: '#262626', 600: '#404040', 500: '#525252', 400: '#737373' },
+            paper:  { DEFAULT: '#fafafa', 100: '#f5f5f5', 200: '#e5e5e5' },
+            brand:  { 50: '#e8f0fe', 500: '#1976D2', 600: '#0D47A1', 700: '#093079' }
+          },
+          fontFamily: {
+            sans:    ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-feature-settings: "ss01", "cv11"; }
+    .num-marker {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #0D47A1;
+      font-size: 0.875rem;
+    }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-ink-800 antialiased">
+
+  <!-- ================ HEADER ================ -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-paper-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="images/logo.svg" alt="Ultra DICOM" class="w-9 h-9" />
+        <div>
+          <div class="text-lg font-bold font-display text-ink-900 leading-none">Ultra DICOM</div>
+          <div class="text-[10px] uppercase tracking-widest text-ink-400">Print Server</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium text-ink-600">
+        <a href="#sobre" class="hover:text-ink-900 transition">Sobre</a>
+        <a href="#pilares" class="hover:text-ink-900 transition">Diferenciais</a>
+        <a href="#funcionalidades" class="hover:text-ink-900 transition">Funcionalidades</a>
+        <a href="#faq" class="hover:text-ink-900 transition">FAQ</a>
+        <a href="#contato" class="hover:text-ink-900 transition">Contato</a>
+      </nav>
+      <a href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-ink-900 hover:bg-ink-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.81 11.81 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.595 5.392l-.999 3.648 3.893-1.539zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- ================ HERO ================ -->
+  <section class="relative overflow-hidden bg-ink-900 text-white">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1920&q=80"
+           alt="" class="w-full h-full object-cover opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink-900 via-ink-900/85 to-transparent"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 py-24 md:py-36 grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="num-marker text-brand-500 mb-6">— 01 / SOFTWARE MÉDICO</div>
+        <h1 class="section-title text-5xl md:text-7xl leading-[1.05] mb-8">
+          Imprima exames<br />
+          DICOM em<br />
+          <span class="text-brand-500">papel fotográfico.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-paper-200 max-w-xl mb-10 leading-relaxed">
+          Servidor DICOM Print profissional que conecta seus equipamentos
+          (Ressonância, Tomografia, Raio-X, Ultrassom) à impressora A4 que
+          você já tem. Substitua o filme radiológico — economize sem trocar
+          o fluxo de trabalho.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#download" class="inline-flex items-center justify-center gap-3 bg-white text-ink-900 hover:bg-paper-100 font-semibold px-8 py-4 rounded-full transition">
+            Baixar 15 dias grátis
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#funcionalidades" class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-full transition">
+            Ver funcionalidades
+          </a>
+        </div>
+      </div>
+
+      <div class="hidden md:block relative">
+        <img src="images/app-mockup.svg" alt="Tela do Ultra DICOM"
+             class="w-full rounded-2xl shadow-2xl ring-1 ring-white/10" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ TRUST BAR ================ -->
+  <section class="border-y border-paper-200 bg-paper">
+    <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="text-3xl font-bold font-display text-ink-900">15 dias</div>
+        <div class="text-sm text-ink-500 mt-1">teste grátis</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold font-display text-ink-900">5 min</div>
+        <div class="text-sm text-ink-500 mt-1">para configurar</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold font-display text-ink-900">100%</div>
+        <div class="text-sm text-ink-500 mt-1">local e offline</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold font-display text-ink-900">64 MB</div>
+        <div class="text-sm text-ink-500 mt-1">arquivo único</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ SOBRE ================ -->
+  <section id="sobre" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="num-marker mb-6">— 02 / SOBRE</div>
+        <h2 class="section-title text-4xl md:text-5xl mb-8 leading-tight">
+          Tecnologia DICOM<br />
+          de ponta, simples<br />
+          como duplo clique.
+        </h2>
+        <div class="space-y-5 text-ink-600 leading-relaxed text-lg">
+          <p>
+            Equipamentos médicos modernos imprimem exames pelo protocolo
+            <strong class="text-ink-900">DICOM Print</strong>, originalmente
+            desenhado para impressoras de filme radiológico — caras, lentas e
+            que ainda usam revelação química.
+          </p>
+          <p>
+            <strong class="text-ink-900">Ultra DICOM</strong> faz a ponte: seu
+            equipamento envia o exame normalmente, mas a impressão sai em
+            papel fotográfico A4 colorido ou preto-e-branco, na impressora que você já tem,
+            com a logo da clínica em cada folha.
+          </p>
+          <p>
+            Sem mensalidade durante o teste. Sem instalação. Sem internet
+            obrigatória. Apenas <strong class="text-ink-900">um arquivo
+            executável</strong> que você baixa, dá duplo clique e configura em
+            minutos.
+          </p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-ink-900 rounded-2xl overflow-hidden border border-paper-200">
+          <img src="images/app-mockup.svg" alt="Tela principal Ultra DICOM" class="w-full" />
+          <div class="px-4 py-2 text-xs font-semibold uppercase tracking-widest text-paper-200 bg-ink-900">Janela principal — jobs em tempo real</div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl overflow-hidden border border-paper-200">
+            <img src="images/rule-config-mockup.svg" alt="Configuração de Regra" class="w-full" />
+            <div class="px-4 py-2 text-xs font-semibold uppercase tracking-widest text-ink-500 bg-paper">Porta + AET + Impressora</div>
+          </div>
+          <div class="bg-white rounded-2xl overflow-hidden border border-paper-200">
+            <img src="images/paper-size-mockup.svg" alt="Mapeamento de tamanhos de papel" class="w-full" />
+            <div class="px-4 py-2 text-xs font-semibold uppercase tracking-widest text-ink-500 bg-paper">Tamanhos de papel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ PILARES ================ -->
+  <section id="pilares" class="bg-paper py-24 md:py-32 border-y border-paper-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="num-marker mb-4">— 03 / DIFERENCIAIS</div>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight">
+          Três pilares que separam<br />o Ultra DICOM de qualquer outro.
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-px bg-paper-200">
+        <div class="bg-white p-10">
+          <div class="text-5xl font-bold font-display text-brand-600 mb-6">01</div>
+          <h3 class="section-title text-2xl mb-4">Confiabilidade clínica</h3>
+          <p class="text-ink-600 leading-relaxed">
+            Construído sobre o padrão DICOM Basic Print Management (PS3.4) usado
+            por hospitais no mundo todo. Compatível com fabricantes como GE,
+            Siemens, Philips, Toshiba e Mindray.
+          </p>
+        </div>
+        <div class="bg-white p-10">
+          <div class="text-5xl font-bold font-display text-brand-600 mb-6">02</div>
+          <h3 class="section-title text-2xl mb-4">Economia real</h3>
+          <p class="text-ink-600 leading-relaxed">
+            Filme radiológico custa de R$ 15 a R$ 40 por folha. Em papel fotográfico,
+            o custo cai para centavos. Em uma clínica média, o investimento se
+            paga em menos de 2 meses.
+          </p>
+        </div>
+        <div class="bg-white p-10">
+          <div class="text-5xl font-bold font-display text-brand-600 mb-6">03</div>
+          <h3 class="section-title text-2xl mb-4">Zero fricção</h3>
+          <p class="text-ink-600 leading-relaxed">
+            Não precisa instalar .NET, não precisa de servidor, não precisa de
+            internet. É um único executável de 64MB que roda em qualquer Windows
+            10 ou 11. Configure uma vez, esqueça.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ FUNCIONALIDADES ================ -->
+  <section id="funcionalidades" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="num-marker mb-4">— 04 / FUNCIONALIDADES</div>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight">
+          Tudo que sua clínica<br />precisa em um software.
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article class="border border-paper-200 rounded-2xl p-8 hover:border-ink-900 transition">
+          <svg class="w-8 h-8 text-brand-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 7.5l.415-.207a.75.75 0 011.085.67V10.5m0 0h6m-6 0h-1.5m1.5 0v5.438c0 .354.161.697.473.865l.262.14a4.5 4.5 0 004.53 0l.262-.14c.312-.168.473-.51.473-.865V10.5m-6 0h6m-3-7.5h2.25c.621 0 1.125.504 1.125 1.125v.75c0 .621-.504 1.125-1.125 1.125H12c-.621 0-1.125-.504-1.125-1.125V4.125c0-.621.504-1.125 1.125-1.125z" /></svg>
+          <h3 class="font-display font-bold text-xl mb-3">Múltiplos endpoints</h3>
+          <p class="text-ink-600">Cada equipamento (RM, TC, RX, US) escuta numa porta + AET independente. Tudo no mesmo PC, mesmo IP.</p>
+        </article>
+
+        <article class="border border-paper-200 rounded-2xl p-8 hover:border-ink-900 transition">
+          <svg class="w-8 h-8 text-brand-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" /></svg>
+          <h3 class="font-display font-bold text-xl mb-3">Qualquer impressora Windows</h3>
+          <p class="text-ink-600">Funciona com Epson, HP, Brother, Canon, Lexmark — qualquer modelo instalado no Windows.</p>
+        </article>
+
+        <article class="border border-paper-200 rounded-2xl p-8 hover:border-ink-900 transition">
+          <svg class="w-8 h-8 text-brand-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+          <h3 class="font-display font-bold text-xl mb-3">Logo da clínica</h3>
+          <p class="text-ink-600">Cabeçalho e rodapé com PNG/JPG da sua identidade visual. Cada folha sai com a marca da casa.</p>
+        </article>
+
+        <article class="border border-paper-200 rounded-2xl p-8 hover:border-ink-900 transition">
+          <svg class="w-8 h-8 text-brand-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" /></svg>
+          <h3 class="font-display font-bold text-xl mb-3">Processamento de imagem</h3>
+          <p class="text-ink-600">Gamma, contraste, saturação, filtros de nitidez. Force preto-e-branco para economizar tinta.</p>
+        </article>
+
+        <article class="border border-paper-200 rounded-2xl p-8 hover:border-ink-900 transition">
+          <svg class="w-8 h-8 text-brand-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+          <h3 class="font-display font-bold text-xl mb-3">Estatísticas mensais</h3>
+          <p class="text-ink-600">Contagem por equipamento, mês a mês. Ideal para auditorias e contabilidade.</p>
+        </article>
+
+        <article class="border border-paper-200 rounded-2xl p-8 hover:border-ink-900 transition">
+          <svg class="w-8 h-8 text-brand-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          <h3 class="font-display font-bold text-xl mb-3">Auto-start com Windows</h3>
+          <p class="text-ink-600">Configure uma vez e pronto. Ultra DICOM sobe junto com o sistema, fica em segundo plano.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ COMO FUNCIONA ================ -->
+  <section id="como-funciona" class="bg-ink-900 text-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="num-marker mb-4 text-brand-500">— 05 / COMO FUNCIONA</div>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight">
+          Do download ao primeiro<br />exame impresso em 5 minutos.
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="border-t border-white/20 pt-8">
+          <div class="text-5xl font-bold font-display text-brand-500 mb-6">01.</div>
+          <h3 class="section-title text-2xl mb-4">Baixe e execute</h3>
+          <p class="text-paper-200 leading-relaxed">
+            Um único arquivo de 64MB. Sem instalador, sem dependências. Duplo clique
+            e o programa abre direto no modo trial de 15 dias.
+          </p>
+        </div>
+        <div class="border-t border-white/20 pt-8">
+          <div class="text-5xl font-bold font-display text-brand-500 mb-6">02.</div>
+          <h3 class="section-title text-2xl mb-4">Configure as regras</h3>
+          <p class="text-paper-200 leading-relaxed">
+            Crie uma regra para cada equipamento — defina porta, AET e impressora
+            destino. Adicione a logo da clínica no cabeçalho e rodapé.
+          </p>
+        </div>
+        <div class="border-t border-white/20 pt-8">
+          <div class="text-5xl font-bold font-display text-brand-500 mb-6">03.</div>
+          <h3 class="section-title text-2xl mb-4">Aponte os equipamentos</h3>
+          <p class="text-paper-200 leading-relaxed">
+            No equipamento médico, configure IP da máquina + porta + AET. Toda
+            impressão DICOM passa a sair na sua impressora A4.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ DOWNLOAD / PREÇO ================ -->
+  <section id="download" class="bg-paper py-24 md:py-32 border-y border-paper-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <div class="num-marker mb-4">— 06 / TESTE E COMPRA</div>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight">
+          Comece agora —<br />pague só se gostar.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Card Trial -->
+        <div class="bg-white border border-paper-200 rounded-3xl p-10 flex flex-col">
+          <div class="text-sm uppercase tracking-widest text-ink-400 font-semibold mb-3">Avaliação</div>
+          <div class="text-5xl font-bold font-display mb-2">Grátis</div>
+          <div class="text-ink-500 mb-8">15 dias completos · sem cartão</div>
+          <ul class="space-y-3 text-ink-600 mb-10 flex-1">
+            <li class="flex gap-3"><span class="text-brand-600">✓</span> Todas as funcionalidades</li>
+            <li class="flex gap-3"><span class="text-brand-600">✓</span> Endpoints ilimitados</li>
+            <li class="flex gap-3"><span class="text-brand-600">✓</span> Sem cadastro</li>
+            <li class="flex gap-3"><span class="text-brand-600">✓</span> Funciona offline</li>
+          </ul>
+          <a href="https://github.com/PauloMoreira85/ultradicom-site/releases/latest/download/Ultra_Dicom.exe"
+             class="block text-center bg-ink-900 hover:bg-ink-700 text-white font-semibold px-6 py-4 rounded-full transition">
+            Baixar Ultra_Dicom.exe →
+          </a>
+          <div class="text-xs text-ink-400 mt-3 text-center">≈ 64 MB · Windows 10/11 · sem instalador</div>
+        </div>
+
+        <!-- Card Anual -->
+        <div class="bg-ink-900 text-white rounded-3xl p-10 flex flex-col relative overflow-hidden">
+          <div class="absolute top-6 right-6 bg-brand-500 text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Recomendado</div>
+          <div class="text-sm uppercase tracking-widest text-paper-200 font-semibold mb-3">Licença comercial</div>
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-5xl font-bold font-display">R$ 2.400</span>
+            <span class="text-paper-200">/ano</span>
+          </div>
+          <div class="text-paper-200 mb-6">por máquina · suporte incluído</div>
+
+          <!-- Desconto plurianual -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
+            <div class="text-xs uppercase tracking-widest text-amber-300 font-semibold mb-2">💎 Desconto plurianual</div>
+            <ul class="text-sm space-y-1 text-paper-200">
+              <li><strong class="text-white">2 anos</strong> · 10% off · R$ 4.320 (R$ 2.160/ano)</li>
+              <li><strong class="text-white">3 anos</strong> · 20% off · R$ 5.760 (R$ 1.920/ano)</li>
+            </ul>
+          </div>
+
+          <ul class="space-y-3 text-paper-200 mb-10 flex-1">
+            <li class="flex gap-3"><span class="text-brand-500">✓</span> Endpoints ilimitados (RX, TC, RM, US)</li>
+            <li class="flex gap-3"><span class="text-brand-500">✓</span> Suporte por e-mail e WhatsApp</li>
+            <li class="flex gap-3"><span class="text-brand-500">✓</span> Atualizações inclusas no período</li>
+            <li class="flex gap-3"><span class="text-brand-500">✓</span> Pagamento via PIX, cartão ou boleto</li>
+          </ul>
+          <a href="https://pagamento.ultradicom.com.br" target="_blank" rel="noopener"
+             class="block text-center bg-white text-ink-900 hover:bg-paper-100 font-semibold px-6 py-4 rounded-full transition">
+            Pagar agora →
+          </a>
+          <div class="text-xs text-paper-200 mt-3 text-center">Pagamento seguro · PIX · Cartão · Boleto</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ FAQ ================ -->
+  <section id="faq" class="py-24 md:py-32">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="mb-16">
+        <div class="num-marker mb-4">— 07 / DÚVIDAS</div>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight">Perguntas frequentes.</h2>
+      </div>
+      <div class="divide-y divide-paper-200 border-t border-paper-200">
+        <details class="py-6 group">
+          <summary class="flex justify-between items-center cursor-pointer font-display font-semibold text-lg text-ink-900">
+            Preciso instalar .NET ou outra coisa?
+            <span class="text-brand-600 group-open:rotate-45 transition text-2xl font-thin">+</span>
+          </summary>
+          <p class="mt-4 text-ink-600 leading-relaxed">Não. O Ultra DICOM já vem com tudo embutido em um único arquivo .exe. Basta dar duplo clique em qualquer Windows 10 ou 11.</p>
+        </details>
+        <details class="py-6 group">
+          <summary class="flex justify-between items-center cursor-pointer font-display font-semibold text-lg text-ink-900">
+            Funciona com qualquer equipamento médico?
+            <span class="text-brand-600 group-open:rotate-45 transition text-2xl font-thin">+</span>
+          </summary>
+          <p class="mt-4 text-ink-600 leading-relaxed">Sim, suportamos os padrões DICOM Basic Grayscale Print Management e Basic Color Print Management — usados praticamente por todos os equipamentos modernos: GE, Siemens, Philips, Toshiba, Mindray, Samsung, Canon Medical e outros.</p>
+        </details>
+        <details class="py-6 group">
+          <summary class="flex justify-between items-center cursor-pointer font-display font-semibold text-lg text-ink-900">
+            Posso instalar a mesma licença em mais de uma máquina?
+            <span class="text-brand-600 group-open:rotate-45 transition text-2xl font-thin">+</span>
+          </summary>
+          <p class="mt-4 text-ink-600 leading-relaxed">Não. Cada licença é amarrada ao hardware da máquina onde foi ativada. Para usar em outro PC, é necessária uma nova licença ou solicitação de transferência (em casos de troca de equipamento).</p>
+        </details>
+        <details class="py-6 group">
+          <summary class="flex justify-between items-center cursor-pointer font-display font-semibold text-lg text-ink-900">
+            O que acontece quando a licença expira?
+            <span class="text-brand-600 group-open:rotate-45 transition text-2xl font-thin">+</span>
+          </summary>
+          <p class="mt-4 text-ink-600 leading-relaxed">O programa solicita uma nova chave de ativação para continuar funcionando. Suas configurações ficam salvas — basta renovar e voltar a imprimir.</p>
+        </details>
+        <details class="py-6 group">
+          <summary class="flex justify-between items-center cursor-pointer font-display font-semibold text-lg text-ink-900">
+            Como recebo a chave de ativação após pagar?
+            <span class="text-brand-600 group-open:rotate-45 transition text-2xl font-thin">+</span>
+          </summary>
+          <p class="mt-4 text-ink-600 leading-relaxed">Após o pagamento, envie por e-mail ou WhatsApp o Hardware ID exibido pelo app. Em até 1 hora útil você recebe sua chave personalizada.</p>
+        </details>
+        <details class="py-6 group">
+          <summary class="flex justify-between items-center cursor-pointer font-display font-semibold text-lg text-ink-900">
+            Funciona offline?
+            <span class="text-brand-600 group-open:rotate-45 transition text-2xl font-thin">+</span>
+          </summary>
+          <p class="mt-4 text-ink-600 leading-relaxed">Sim. Após a ativação inicial, todo o processamento de impressão é local. Internet só é necessária para baixar o programa e na renovação anual.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ CONTATO ================ -->
+  <section id="contato" class="bg-ink-900 text-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+      <div>
+        <div class="num-marker text-brand-500 mb-4">— 08 / CONTATO</div>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight mb-8">
+          Vamos conversar<br />sobre sua clínica.
+        </h2>
+        <p class="text-lg text-paper-200 leading-relaxed mb-10">
+          Tire dúvidas, receba uma demonstração ou solicite implantação personalizada.
+          Atendemos clínicas, hospitais, centros de imagem e consultórios em todo o Brasil.
+        </p>
+        <div class="space-y-5">
+          <a href="mailto:suporte@ultradicom.com.br" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-paper-200">E-mail</div>
+              <div class="font-semibold">suporte@ultradicom.com.br</div>
+            </div>
+          </a>
+          <a href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.81 11.81 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.595 5.392l-.999 3.648 3.893-1.539zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-paper-200">WhatsApp</div>
+              <div class="font-semibold">Clique para abrir conversa</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <form action="mailto:suporte@ultradicom.com.br" method="POST" enctype="text/plain" class="bg-white text-ink-800 rounded-3xl p-8 md:p-10 space-y-5">
+        <div>
+          <label class="block text-sm font-semibold text-ink-700 mb-2">Nome</label>
+          <input type="text" name="nome" required class="w-full px-4 py-3 border border-paper-200 rounded-lg focus:outline-none focus:border-ink-900" placeholder="Seu nome completo" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-ink-700 mb-2">Clínica / Hospital</label>
+          <input type="text" name="empresa" class="w-full px-4 py-3 border border-paper-200 rounded-lg focus:outline-none focus:border-ink-900" placeholder="Nome da instituição" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-ink-700 mb-2">E-mail</label>
+          <input type="email" name="email" required class="w-full px-4 py-3 border border-paper-200 rounded-lg focus:outline-none focus:border-ink-900" placeholder="seu@email.com" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-ink-700 mb-2">Mensagem</label>
+          <textarea name="mensagem" rows="4" class="w-full px-4 py-3 border border-paper-200 rounded-lg focus:outline-none focus:border-ink-900" placeholder="Quantos equipamentos? Quais modalidades?"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-ink-900 hover:bg-ink-700 text-white font-semibold py-4 rounded-full transition">
+          Enviar mensagem
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================ FOOTER ================ -->
+  <footer class="bg-ink-900 text-paper-200 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-5">
+          <img src="images/logo.svg" alt="Ultra DICOM" class="w-10 h-10" />
+          <div class="text-xl font-bold font-display text-white">Ultra DICOM</div>
+        </div>
+        <p class="text-sm leading-relaxed max-w-md">
+          Servidor de impressão DICOM profissional para clínicas, hospitais
+          e consultórios. Substitua filmes radiológicos por papel fotográfico.
+        </p>
+      </div>
+      <div>
+        <div class="text-xs uppercase tracking-widest text-paper-200 font-semibold mb-4">Navegação</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#sobre" class="hover:text-white transition">Sobre</a></li>
+          <li><a href="#funcionalidades" class="hover:text-white transition">Funcionalidades</a></li>
+          <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs uppercase tracking-widest text-paper-200 font-semibold mb-4">Contato</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="mailto:suporte@ultradicom.com.br" class="hover:text-white transition">suporte@ultradicom.com.br</a></li>
+          <li><a href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener" class="hover:text-white transition">WhatsApp</a></li>
+          <li>ultradicom.com.br</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 text-xs text-paper-200 text-center">
+        © 2026 Ultra DICOM. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
